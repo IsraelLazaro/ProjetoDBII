@@ -26,10 +26,10 @@ map.addListener("click", (event)=>{
 function addMarker(event){
     marker.setPosition(event.latLng);
     const imput = document.getElementById("coordenadas");
-    imput.value = event.latLng; 
-    
+    imput.value = event.latLng;     
 };
 };
+initMap();
 async function conectarAPI(obj){
     const api = await fetch('http://localhost:3000/eventos', {
         method: 'POST',
@@ -72,6 +72,6 @@ btn.addEventListener('click', () => {
     });
 
 
-initMap();
+
 
 

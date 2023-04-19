@@ -1,7 +1,7 @@
-body{
+/* body{
     min-width: 100%;
     background-color: rgb(43, 43, 63);
-}
+} */
 /* RODANDO O MAPA DO API DO GOOGLE MAPS
 Always set the map height explicitly to define the size of the div element
 that contains the map. 
@@ -13,6 +13,11 @@ that contains the map.
     position: relative;
     float: right;
     width: 65%;
+    background-color:rgb(170, 181, 178);
+    opacity: 0.3;
+}
+#map:hover{
+    opacity: 0.9;
 }
 /* Optional: Makes the sample page fill the window.  */
 html,
@@ -41,12 +46,15 @@ body {
 /* FIM */
 /* Formatando DIV do mapa*/
 .maps{       
-    background-color:rgb(170, 181, 178);
-    opacity: 0.3;
+
 }
-.maps:hover{
-opacity: 0.9;
+#listaEv{
+    opacity: 1;
+    width: auto;
+    color: white;
 }
+
+
 /* FIM */
 .imgfund{
     position:absolute;
@@ -78,4 +86,17 @@ h2{
     width: 600px;
     height: 600px;
     opacity: 0.3;
+}
+#salvar{
+    margin-left: 65%;
+}
+footer{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    
+    align-items: center;
+    background: #041e1b;
+    color: #ffffff;
+    box-sizing: border-box;
 }

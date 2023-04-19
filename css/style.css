@@ -1,0 +1,81 @@
+body{
+    min-width: 100%;
+    background-color: rgb(43, 43, 63);
+}
+/* RODANDO O MAPA DO API DO GOOGLE MAPS
+Always set the map height explicitly to define the size of the div element
+that contains the map. 
+*/
+#map {
+    margin: 20px;
+    height: 100%;
+    border-radius: 10px 20px;
+    position: relative;
+    float: right;
+    width: 65%;
+}
+/* Optional: Makes the sample page fill the window.  */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/* FIM */
+
+/* Formato da DIV do formulário*/
+.forms{
+    position: absolute;
+    margin-top: 50px;
+    width: 35%;
+    height: auto;
+    padding: 40px;
+    margin-left: 25px;
+    border-radius: 10px 20px;
+    background-color: rgb(21, 40, 56);
+    opacity: 0.5; 
+}
+.forms:hover{
+    opacity: 0.9;
+}
+/* FIM */
+/* Formatando DIV do mapa*/
+.maps{       
+    background-color:rgb(170, 181, 178);
+    opacity: 0.3;
+}
+.maps:hover{
+opacity: 0.9;
+}
+/* FIM */
+.imgfund{
+    position:absolute;
+    left: 5%;    
+}
+.logo{
+    width: 50px;
+    opacity: 0.7;    
+}
+.cxtxt{
+    margin: 10px;    
+}
+.cxtxt2{
+    margin: 10px;
+}
+h2{
+    color: white;
+} 
+#descricao{
+    width: 350px;
+    height: 100px;
+}
+
+.listEvents{
+    margin: 10px;
+    background-color: black;
+    border-radius: 10px;
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    opacity: 0.3;
+}

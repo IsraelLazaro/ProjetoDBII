@@ -20,6 +20,6 @@ const Evento = sequelize.define('Evento', {
     localizacao:{
         type: DataTypes.GEOMETRY
     }
-
 });
+
 module.exports = Evento;

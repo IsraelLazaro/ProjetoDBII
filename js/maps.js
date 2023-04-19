@@ -29,7 +29,49 @@ function addMarker(event){
     imput.value = event.latLng; 
     
 };
+};
+async function conectarAPI(obj){
+    const api = await fetch('http://localhost:3000/eventos', {
+        method: 'POST',
+        headers: {
+            accept: 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+            }).then(res =>{
+                alert('Evento criado com sucesso!')
+            }).catch(erro=>{
+                alert('Não foi possível salvar o evento')
+            });
+    if(retorno.status ===201){
+        window.location.href = "eventos.html";
+    }else{
+        console.log('ERRO') 
+    };
+
+    const eventos = await api.json();
+    console.log(eventos);
+
+    
 }
+
+const btn = document.querySelector('#salvar');
+btn.addEventListener('click', () => {
+    
+    const obj = {
+        nomeEvento:document.querySelector('#nomeEv').value,
+        dataInicio: document.querySelector('#dataI').value,
+        descricao: document.querySelector('#descricao').value,
+        lat: marker.getPosition().lat(),
+        lng: marker.getPosition().lng()
+    };
+    console.log(obj);
+    conectarAPI(obj);
+    
+    alert('AQUI TA OK!')
+    });
+
+
 initMap();
 
 

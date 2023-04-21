@@ -16,15 +16,21 @@ function mostrarEventos(eventos){
         const longi = evento.localizacao.coordinates[0];
         const lati = evento.localizacao.coordinates[1];
         const nome = evento.nomeEvento;
+        const data = evento.dataInicio;
+        const newDate = data.split('-').reverse().join('/');
         cord = {lat: lati, lng: longi};
         corde.push({cord, nome});
         const novoEvento =         
-        `<div class="evt">            
+        `<div class="containerEvento">
+        <div class="evt">            
         <h4 class="panel-title">${evento.nomeEvento}</h4>
-        <p>${nome}</p>
-        <p>Data: ${evento.dataInicio}</p>  
-        <p>LAT: ${lati}</p>
-        <p>LNG: ${longi}</p>
+        </div>
+        <div class="descr">
+        <p>${evento.descricao}</p>
+        </div>
+        <div class="dat">
+        <p>Data: ${newDate}</p>
+        </div>
         </div>`;  
         divEventos.innerHTML = divEventos.innerHTML + novoEvento;
         

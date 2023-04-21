@@ -1,3 +1,4 @@
+
 let map;
 let markers =[];
 let marker;
@@ -28,8 +29,12 @@ function addMarker(event){
     const imput = document.getElementById("coordenadas");
     imput.value = event.latLng;     
 };
+
+
 };
 initMap();
+
+// CONECTANDO COM API E SALVANDO O EVENTO
 async function conectarAPI(obj){
     const api = await fetch('http://localhost:3000/eventos', {
         method: 'POST',
@@ -40,21 +45,19 @@ async function conectarAPI(obj){
             body: JSON.stringify(obj)
             }).then(res =>{
                 alert('Evento criado com sucesso!')
+                limparCampos();
             }).catch(erro=>{
                 alert('Não foi possível salvar o evento')
             });
-    if(retorno.status ===201){
+    if(retorno.status ===200){
         window.location.href = "eventos.html";
     }else{
         console.log('ERRO') 
     };
-
     const eventos = await api.json();
-    console.log(eventos);
-
-    
+    console.log(eventos);    
 }
-
+// ADICIONANDO EVENTO AO BOTÃO SALVAR PARA ENVIAR OS DADOS PARA O DANCO
 const btn = document.querySelector('#salvar');
 btn.addEventListener('click', () => {
     
@@ -67,10 +70,48 @@ btn.addEventListener('click', () => {
     };
     console.log(obj);
     conectarAPI(obj);
-    
-    alert('AQUI TA OK!')
     });
+    function limparCampos(){
+        document.querySelector('#nomeEv').value="";
+        document.querySelector('#dataI').value="";
+        document.querySelector('#descricao').value=""
+        document.querySelector("#coordenadas").value=""
+    }
 
+    // LISTAR OS EVENTOS DO BANCO E JOGAR O MARCADOR NO MAPA
+    // async function listarEventos(){
+    //     alert('AQUI 01');
+    //     const retorno = await fetch('http://localhost:3000/eventos');
+    //     const eventos = await retorno.json();
+    //     mostrarEventos(eventos);
+    //     console.log(eventos);    
+    // };
+    // function mostrarEventos(eventos){
+    //     alert('AQUI 02')
+    //     eventos.forEach(evento => {
+    //         const novoEvento = 
+    //         `<div class="evt">            
+    //         <h4 class="panel-title">${evento.nomeEvento}</h4>
+    //         <p>${evento.descricao}</p>
+    //         <p>Data: ${evento.dataInicio}</p>            
+    //         </div>`;
+    //         divEventos.innerHTML = divEventos.innerHTML + novoEvento;
+    //         alert('AQUI 03!')
+    //         // addMarker2(evento.lat.value, evento.lng, evento.nome.value);
+    //     });
+    // };
+
+    // function addMarker2(lat, lng, nome){
+    //     alert('AQUI 04!')
+    //     const marker = new google.maps.Marker({
+    //         position: {lat: lat, lng: lng},
+    //         map: map,
+    //         title: nome
+    //         });
+    //         marker.setMap(map);
+    //         markers.push(marker);
+
+    // }
 
 
 

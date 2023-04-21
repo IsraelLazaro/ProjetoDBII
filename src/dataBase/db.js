@@ -13,7 +13,6 @@ const sequelize = new Sequelize(
 );
 
 
-
 module.exports = sequelize;
 
 /* Conectar ao servidor*/

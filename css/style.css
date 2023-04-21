@@ -7,18 +7,10 @@ Always set the map height explicitly to define the size of the div element
 that contains the map. 
 */
 #map {
-    margin: 20px;
     height: 100%;
-    border-radius: 10px 20px;
-    position: relative;
-    float: right;
-    width: 65%;
-    background-color:rgb(170, 181, 178);
-    opacity: 0.3;
+    
 }
-#map:hover{
-    opacity: 0.9;
-}
+
 /* Optional: Makes the sample page fill the window.  */
 html,
 body {
@@ -46,7 +38,18 @@ body {
 /* FIM */
 /* Formatando DIV do mapa*/
 .maps{       
-
+    margin: 20px;
+    height: 100%;
+    border-radius: 10px 20px;
+    position: relative;
+    float: right;
+    width: 65%;
+    background-color:rgb(170, 181, 178);
+    opacity: 1;
+}
+.maps:hover{
+    width: 65%;
+    z-index: 1;
 }
 #listaEv{
     opacity: 1;

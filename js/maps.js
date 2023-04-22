@@ -49,7 +49,7 @@ async function conectarAPI(obj){
             console.log(eventos);    
 };
 // ADICIONANDO EVENTO AO BOTÃO SALVAR PARA ENVIAR OS DADOS PARA O DANCO
-const btn = document.querySelector('#salvar');
+const btn = document.querySelector('#btnsalvar');
 btn.addEventListener('click', () => {    
     const obj = {
         nomeEvento:document.querySelector('#nomeEv').value,

@@ -10,92 +10,90 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     
-    <title>Montando um site para informar eventos</title>
-
-<!-- Links Google maps API -->
-  <script type="module" src="/js/maps.js"></script> 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <title>Banco de Dados II</title>
 
 <!-- Links CSS DA PÁGINA -->
-  <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
 <body>
 <!-- Container do menu da Página -->
     <header data-bs-theme="dark">
-        <div class="collapse text-bg-dark" id="navbarHeader">
-          <div class="container">
+    <div class="collapse text-bg-dark" id="navbarHeader">
+        <div class="container">
             <div class="row">
-              <div class="col-sm-8 col-md-7 py-4">
-                <h4>Eventos Maps</h4>
-                <p class="text-body-secondary">
-                    Cadastre os princiapis eventos de sua cidade e tenha uma 
-                    melhor organização para desenvolver suas atividades. Neste site você 
-                    pode cadastrar eventos e a indicar sua localização utilizando 
-                    o mapa de sua cidade. 
-                </p>
-              </div>
-              <div class="col-sm-4 offset-md-1 py-4">
-                <h4>ORGANIZAÇÃO DOS EVENTOS</h4>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="text-white">Lista de eventos 2021</a></li>
-                  <li><a href="#" class="text-white">Lista de eventos 2022</a></li>
-                  <li><a href="eventos.html" class="text-white">Lista de eventos 2023</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-          <div class="container">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-              <img class="logo" src="./img/IMG.svg" alt="">
-              <strong class="EM"> EM</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-        </div>
-      </header>
-      <!-- <img class="imgfund" src="./img/2638404.png" alt=""> -->
-  
-<!-- Divi Google Mpas (MAPA) -->
-      <div class="maps" id="map">
-        
-      </div>
-
-<!-- FORMULÁRIO DA PÁGINA -->
-  <section class="secao">
-    <div id="form" class="forms">
-        <form action="/novo" method="post">
-            <div>
-                <h3 >CADASTRO DE EVENTOS</h3>
-                <label for="nomeEvento"></label>
-                <input class="cxtxt" type="text" name="nome" id="nomeEv" placeholder="Nome do evento" required>
-            </div>
-            <div>
-                <label for="dataInicio"></label>
-                <input class="cxtxt" type="date" name="nome" id="dataI" placeholder="dd-mm-yyyy" required>
-            </div>
-            <div>
-                <label for="coordenadas"></label>
-                <input class="cxtxt" type="text" name="nome" id="coordenadas" placeholder="Selecione no mapa" disabled="" required>
-            </div>
-            <div>
-                <label for="descricao"></label>
-                <textarea class="cxtxt2" typi="text" name="nome" id="descricao" placeholder="Descrição do evento"></textarea>
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4>Eventos Maps</h4>
+                    <p class="text-body-secondary">
+                        A Event Maps é a solução ideal para quem busca planejar 
+                        e organizar eventos de forma eficiente e simplificada. 
+                        Com nossa plataforma online, você pode criar mapas interativos
+                        personalizados para seus eventos, permitindo que seus convidados
+                        visualizem facilmente a disposição do espaço e localizem os 
+                        eventos de sua cidade. 
+                    </p>
                 </div>
-              <button id="salvar" type="button" class="btn btn-primary btn-lg" onclick="salvarPonto()" method="POST" > CADASTRAR </button>
-        </form>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4>ORGANIZAÇÃO DOS EVENTOS</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Lista de eventos 2021</a></li>
+                        <li><a href="#" class="text-white">Lista de eventos 2022</a></li>
+                        <li><a href="eventos.html" class="text-white">Lista de eventos 2023</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-   
-<!-- Links dos scripts -->
-    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-      ({key: "", v: "weekly"});</script>    
-      </body>
-      <footer>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img class="logo" src="./img/IMG.svg" alt="">
+            <strong class="EM"> EM</strong>
+            </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        </div>
+    </div>
+    </header> 
+    <section class="infosec">
+        <div class="info">
+            <h2>Event Maps</h2>
+            <p>Os eventos de tecnologia são oportunidades únicas para que profissionais
+                e entusiastas da área possam se reunir e compartilhar conhecimento, 
+                discutir ideias e descobrir as últimas tendências do setor. Esses 
+                eventos podem incluir conferências, feiras, exposições e outros 
+                encontros que reúnem empresas, investidores e especialistas em 
+                tecnologia.                
+            </p>
+            <p>A Event Maps é a solução ideal para quem busca planejar e organizar 
+                eventos de forma eficiente e simplificada. Com nossa plataforma online,
+                você pode criar mapas interativos personalizados para seus eventos, 
+                permitindo que seus convidados visualizem facilmente a disposição do 
+                espaço e localizem os eventos de sua cidade.</p>
+        </div>
+    </section>    
+    <section>
+        <div class="circleimg">
+            <img class="imgicon" src="./img/Desenho-Tecnologia-PNG.png" alt="">
+        </div>
+    </section>
+ 
+    <section>
+        <div class="botao">
+            <button id="btnPgCad" class="btn btn-primary btn-lg" onclick="window.location.href='./cadastro.html'">Cadastrar Evento</button> 
+        </div>
+        <div class="colab">
+            <h4>Colaboradores</h4>
+            <img class="imgCol" src="./img/UFCG.png" alt="">
+            <img class="imgCol" src="./img/ifpb.png" alt="">
+            <img class="imgCol" src="./img/1200px-Instituto_Federal_do_Rio_Grande_do_Norte_-_Marca_Vertical_2015.svg.png" alt="">
+        
+        </div>
+        
+    </section>
+</body>
+<footer>
         Copyright 2023 © - Analise e Desenvolvimento de Sistemas - ADS™ 
-      </footer>
+</footer>
 </html>

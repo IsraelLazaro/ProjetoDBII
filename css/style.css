@@ -10,7 +10,7 @@ that contains the map.
 /* Optional: Makes the sample page fill the window.  */
 html,
 body {
-    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    background-image: linear-gradient(-60deg, rgb(59, 100, 39) 20%, rgb(42, 67, 84) 70%);
     height: 100%;
     margin: 0;
     padding: 0;
@@ -79,8 +79,7 @@ body {
     float: right;
     width: 68%;
     background-color:rgb(170, 181, 178);
-    opacity: 1;
-   
+    opacity: 1; 
 }
 #listaEv{
     opacity: 1;
@@ -125,10 +124,12 @@ body {
     margin-left: 51%;
 }
 footer{
+
+    position: relative;
     width: 100%;
     padding: 5px;
     display: flex;
-    
+    clear: both;
     align-items: center;
     background: #041e1b;
     color: #ffffff;
@@ -143,7 +144,59 @@ footer{
     min-height: 420px;
     background-image: linear-gradient(-60deg, rgb(13, 15, 13) 50%, rgb(74, 79, 82) 50%); 
 }
-.colaboradores{
-    position:absolute;
- 
+.infosec{
+    border-radius: 10%;
+    margin-top: 5%;
+    margin-left: 12%;
+    padding: 20px;
+    text-align: justify;    
+    background-color: rgba(106, 148, 163, 0.1);
+    max-width: 50%;
+    float: left;
 }
+.info{  
+    border-radius: 5%; 
+    padding: 10px;
+    text-align: justify;    
+    background-color: rgba(62, 103, 114, 0.2);
+    color: rgb(254, 253, 253);
+    float: left;
+}
+.circleimg{
+    
+    border-radius: 100%;
+    height: 500px;
+    position: relative;
+    float: right;
+    display: flex;
+    align-items: center;
+    margin-bottom: 110px;
+}
+.circleimg img{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 110px;
+}
+
+.colab{
+    top: 40px;
+    position: relative;
+    text-align: center;
+    float: right;
+}
+.imgCol{
+    position: relative;
+    max-width: 100px;
+    padding: 10px;
+}
+.botao{
+    margin-top: 500px;
+    margin-left: 100px;
+    position: absolute;
+}
+
+
+
+

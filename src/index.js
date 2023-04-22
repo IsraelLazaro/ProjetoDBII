@@ -7,16 +7,10 @@ app.use(express.json());
 const port = process.env.POSTGRES_PORT;
 const EventoRouter = require('./routers/EventoRouter');
 
-
-
 app.use('/eventos', EventoRouter);
 
-
-
-
 app.listen(
-    port,
-    () => {
+    port, () => {
         console.log(`Evento listening on port ${port}`);
         }   
-)
+    );

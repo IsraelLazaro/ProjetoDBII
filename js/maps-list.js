@@ -4,14 +4,12 @@ var markers =[];
 var marker;
 let center = {lat:-6.892021526686363, lng:-38.55870364759306};
 let corde = [];
-async function listarEventos(){
-    
+async function listarEventos(){    
     const retorno = await fetch('http://localhost:3000/eventos');
     const eventos = await retorno.json();
     mostrarEventos(eventos);
-};
+    };
 function mostrarEventos(eventos){
-
     eventos.forEach(evento => {
         const longi = evento.localizacao.coordinates[0];
         const lati = evento.localizacao.coordinates[1];
@@ -34,10 +32,9 @@ function mostrarEventos(eventos){
         </div>`;  
         divEventos.innerHTML = divEventos.innerHTML + novoEvento;
         
-    });
-    console.log(corde);
+        });
     addMarker();
-};
+    };
 function addMarker(){ 
     for(let i =0; i<corde.length; i++){
         const {cord, nome} = corde[i];
@@ -48,24 +45,18 @@ function addMarker(){
                 },
                 map: map,
                 title: nome
-                });
-                marker.setMap(map);
-
-    }       
+            });
+            marker.setMap(map);
+    };     
 };
-
 async function initMap() {
     //@ts-ignore
-const { Map } = await google.maps.importLibrary("maps");
-
-map = new Map(document.getElementById("map1"), {
-    center: center,
-    zoom: 15,
-});
-
-
-
-};
+    const { Map } = await google.maps.importLibrary("maps");
+    map = new Map(document.getElementById("map1"), {
+        center: center,
+        zoom: 15,
+        });
+    };
 window.initMap();
 
 

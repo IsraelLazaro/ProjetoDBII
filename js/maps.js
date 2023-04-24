@@ -13,7 +13,9 @@ async function initMap() {
             map: map,
             position: center,
             draggable: true,
-            title: "Cajazeiras"    
+            title: "Cajazeiras",
+            animation: google.maps.Animation.BOUNCE
+
             });
         map.addListener("click", (event)=>{
             addMarker(event);
@@ -27,7 +29,12 @@ async function initMap() {
 initMap();
 // CONECTANDO COM API E SALVANDO O EVENTO
 async function conectarAPI(obj){
-    const api = await fetch('http://localhost:3000/eventos', {
+    const aux = document.querySelector('#coordenadas').value;
+    if(obj.nomeEvento==="" || obj.dataInicio==="" || obj.descricao==="" || aux===""){
+        alert('Preencha os campos obrigatórios!!');
+        }
+    else{
+        const api = await fetch('http://localhost:3000/eventos', {
         method: 'POST',
         headers: {
             accept: 'application/json',
@@ -40,13 +47,14 @@ async function conectarAPI(obj){
             }).catch(erro=>{
                 alert('Não foi possível salvar o evento')
             });
-    if(retorno.status ===200){
-        window.location.href = "eventos.html";
-        }else{
-            console.log('ERRO') 
-            };
+        if(retorno.status ===200){
+            window.location.href = "eventos.html";
+            }else{
+                console.log('ERRO') 
+                };
             const eventos = await api.json();
-            console.log(eventos);    
+            console.log(eventos); 
+        };
 };
 // ADICIONANDO EVENTO AO BOTÃO SALVAR PARA ENVIAR OS DADOS PARA O DANCO
 const btn = document.querySelector('#btnsalvar');
@@ -57,8 +65,8 @@ btn.addEventListener('click', () => {
         descricao: document.querySelector('#descricao').value,
         lat: marker.getPosition().lat(),
         lng: marker.getPosition().lng()
-        };
-    conectarAPI(obj);
+        };      
+    conectarAPI(obj);       
     });
     function limparCampos(){
         document.querySelector('#nomeEv').value="";

@@ -4,6 +4,8 @@ var markers =[];
 var marker;
 let center = {lat:-6.892021526686363, lng:-38.55870364759306};
 let corde = [];
+const imagem = '../img/pin.png';
+imagem;
 async function listarEventos(){    
     const retorno = await fetch('http://localhost:3000/eventos');
     const eventos = await retorno.json();
@@ -44,10 +46,12 @@ function addMarker(){
                 lng: cord.lng
                 },
                 map: map,
-                title: nome
+                title: nome,
+                animation: google.maps.Animation.DROP,
+                icon: imagem
             });
-            marker.setMap(map);
-    };     
+            marker.setMap(map);        
+    };        
 };
 async function initMap() {
     //@ts-ignore

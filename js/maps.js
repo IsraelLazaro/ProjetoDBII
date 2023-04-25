@@ -34,7 +34,10 @@ async function conectarAPI(obj){
         alert('Preencha os campos obrigatórios!!');
         }
     else{
-        const api = await fetch('http://localhost:3000/eventos', {
+        if(obj.descricao.length>350){
+            alert(`A descrição tem ${obj.descricao.length} resuma sua descrição`);
+        }else{
+            const api = await fetch('http://localhost:3000/eventos', {
         method: 'POST',
         headers: {
             accept: 'application/json',
@@ -53,7 +56,9 @@ async function conectarAPI(obj){
                 console.log('ERRO') 
                 };
             const eventos = await api.json();
-            console.log(eventos); 
+            console.log(eventos);
+        }
+
         };
 };
 // ADICIONANDO EVENTO AO BOTÃO SALVAR PARA ENVIAR OS DADOS PARA O DANCO

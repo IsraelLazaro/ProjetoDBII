@@ -1,5 +1,4 @@
 let map;
-let markers =[];
 let marker;
 let center = {lat:-6.892021526686363, lng:-38.55870364759306};
 async function initMap() {
@@ -15,7 +14,6 @@ async function initMap() {
             draggable: true,
             title: "Cajazeiras",
             animation: google.maps.Animation.BOUNCE
-
             });
         map.addListener("click", (event)=>{
             addMarker(event);
@@ -38,27 +36,26 @@ async function conectarAPI(obj){
             alert(`A descrição tem ${obj.descricao.length} resuma sua descrição`);
         }else{
             const api = await fetch('http://localhost:3000/eventos', {
-        method: 'POST',
-        headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-            }).then(res =>{
-                alert('Evento foi salvo com sucesso!')
-                limparCampos();
-            }).catch(erro=>{
-                alert('Não foi possível salvar o evento')
-            });
-        if(retorno.status ===200){
-            window.location.href = "eventos.html";
-            }else{
-                console.log('ERRO') 
-                };
-            const eventos = await api.json();
-            console.log(eventos);
-        }
-
+                method: 'POST',
+                headers: {
+                    accept: 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                body: JSON.stringify(obj)
+                }).then(res =>{
+                    alert('Evento foi salvo com sucesso!')
+                    limparCampos();
+                    }).catch(erro=>{
+                        alert('Não foi possível salvar o evento')
+                        });
+                if(retorno.status ===200){
+                    window.location.href = "eventos.html";
+                    }else{
+                        console.log('ERRO') 
+                        };
+                    const eventos = await api.json();
+                    console.log(eventos);
+            }
         };
 };
 // ADICIONANDO EVENTO AO BOTÃO SALVAR PARA ENVIAR OS DADOS PARA O DANCO

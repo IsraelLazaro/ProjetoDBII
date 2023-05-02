@@ -1,15 +1,44 @@
 const divEventos = document.querySelector('#listaEv');
 let map;
+var infoWindows=[];
 var markers =[];
 var marker;
 let center = {lat:-6.892021526686363, lng:-38.55870364759306};
 let corde = [];
-const imagem = '../img/pin.png';
-imagem;
+const imagem = '../img/ponto-de-pin.png';
+
+async function initMap() {    
+    //@ts-ignore
+    const { Map } = await google.maps.importLibrary("maps");
+    map = new Map(document.getElementById("map1"), {
+        center: center,
+        zoom: 15,
+        });
+    };
+    function setMarkes(){  
+        for (let i = 0; i < markers.length; i++) {
+            marker = markers[i];
+            markers[i].setMap(map);
+            let infoWindow = new google.maps.InfoWindow({
+                content: `<h4>${markers[i].title}</h4>`
+                });
+            infoWindows.push(infoWindow);
+            markers[i].addListener('click', function(){
+                infoWindows[i].open(map, markers[i]); 
+                map.addListener("click", function() {
+                    infoWindow.close();
+                    }); 
+                });
+            };
+        };
+    
+window.initMap();
+
 async function listarEventos(){    
-    const retorno = await fetch('http://localhost:3000/eventos');
-    const eventos = await retorno.json();
+    const conect = await fetch('http://localhost:3000/eventos');
+    const eventos = await conect.json();
     mostrarEventos(eventos);
+    setMarkes();
     };
 function mostrarEventos(eventos){
     eventos.forEach(evento => {
@@ -32,10 +61,9 @@ function mostrarEventos(eventos){
         <p>Data: ${newDate}</p>
         </div>
         </div>`;  
-        divEventos.innerHTML = divEventos.innerHTML + novoEvento;
-        
+        divEventos.innerHTML = divEventos.innerHTML + novoEvento;        
         });
-    addMarker();
+    addMarker();    
     };
 function addMarker(){ 
     for(let i =0; i<corde.length; i++){
@@ -47,20 +75,12 @@ function addMarker(){
                 },
                 map: map,
                 title: nome,
-                animation: google.maps.Animation.DROP,
+                animation: google.maps.Animation.BOUNCE,
                 icon: imagem
             });
-            marker.setMap(map);        
+            markers.push(marker);                   
     };        
 };
-async function initMap() {
-    //@ts-ignore
-    const { Map } = await google.maps.importLibrary("maps");
-    map = new Map(document.getElementById("map1"), {
-        center: center,
-        zoom: 15,
-        });
-    };
-window.initMap();
+
 
 
